@@ -15,14 +15,14 @@ CREATE TABLE [Rol] (
 GO
 
 CREATE TABLE [Rol_Usuario] (
-  [id_rolUsuario] nvarchar(255) PRIMARY KEY IDENTITY(1, 1),
+  [id_rolUsuario] int PRIMARY KEY IDENTITY(1, 1),
   [id_rol] nvarchar(255) NOT NULL,
-  [id_usuario] nvarchar(255) NOT NULL
+  [id_usuario] int NOT NULL
 )
 GO
 
 CREATE TABLE [Proveedor] (
-  [id_proveedor] nvarchar(255) PRIMARY KEY IDENTITY(1, 1),
+  [id_proveedor] int PRIMARY KEY IDENTITY(1, 1),
   [rut] varchar(10),
   [nombre] varchar(30),
   [apellido] varchar(30),
@@ -32,7 +32,7 @@ CREATE TABLE [Proveedor] (
 GO
 
 CREATE TABLE [Juguete] (
-  [id_juguete] nvarchar(255) PRIMARY KEY IDENTITY(1, 1),
+  [id_juguete] int PRIMARY KEY IDENTITY(1, 1),
   [nombre] nvarchar(255) NOT NULL,
   [marca] nvarchar(255) NOT NULL,
   [precioUnit] int NOT NULL
@@ -40,17 +40,17 @@ CREATE TABLE [Juguete] (
 GO
 
 CREATE TABLE [Boleta] (
-  [id_boleta] nvarchar(255) PRIMARY KEY IDENTITY(1, 1),
+  [id_boleta] int PRIMARY KEY IDENTITY(1, 1),
   [fecha_emision] date NOT NULL,
   [total] int NOT NULL,
-  [id_usuario] nvarchar(255) NOT NULL
+  [id_usuario] int NOT NULL
 )
 GO
 
 CREATE TABLE [Detalle_boleta] (
   [cantidad_productos] int NOT NULL,
-  [id_boleta] nvarchar(255),
-  [id_juguete] nvarchar(255),
+  [id_boleta] int,
+  [id_juguete] int,
   PRIMARY KEY ([id_boleta], [id_juguete])
 )
 GO
